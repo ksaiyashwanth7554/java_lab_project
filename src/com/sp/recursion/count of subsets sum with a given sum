@@ -1,0 +1,42 @@
+
+
+public class Main
+{
+    
+    public int countofsubsetssumwithagivensum(int arr[],int sum,int n,int k,int m[][]){
+        if(sum==0){
+            return 1;
+        }
+        if(k==n){
+            return 0;
+        }
+        if(m[k][sum]!=-1){
+            return m[k][sum];
+        }
+        int r = 0;
+        if(arr[k]<=sum){
+           r=  countofsubsetssumwithagivensum(arr,sum-arr[k],n,k+1,m);
+           
+        }
+        int r1 = countofsubsetssumwithagivensum(arr,sum,n,k+1,m);
+        m[k][sum]=r+r1;
+        return m[k][sum];
+        
+        
+    }
+
+	public static void main(String[] args) {
+		int arr[]={2,3,5,6,8,10};
+		int sum=10; 
+		
+		int m[][] = new int[arr.length+1][sum+1];
+		for(int i=0;i<m.length;i++){
+		    for(int j=0;j<m[0].length;j++){
+		        m[i][j]=-1;
+		    }
+		}
+		Main obj =new Main();
+		
+		System.out.print(obj.countofsubsetssumwithagivensum(arr,sum,arr.length,0,m));
+	}
+}
