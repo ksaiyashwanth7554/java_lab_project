@@ -8,6 +8,10 @@ public class College_admission_2_sep_24 {
 		Name="unknown";
 		Age = 18;
 	}
+	College_admission_2_sep_24(String n,int a){
+		Name="unknown";
+		Age = 18;
+	}
 	public void display() {
 		System.out.println("Name "+ Name);
 		System.out.println("Age "+ Age);
@@ -17,5 +21,6 @@ public class College_admission_2_sep_24 {
 		cad.display();
 
 	}
+	
 
 }
